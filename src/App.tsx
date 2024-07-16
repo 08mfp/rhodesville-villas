@@ -9,6 +9,8 @@ import Neighborhood from './pages/Neighborhood/Neighborhood';
 import Amenities from './pages/Amenities/Amenities';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { Analytics } from "@vercel/analytics/react"
+
 import './App.css';
 
 const App: React.FC = () => (
@@ -24,6 +26,7 @@ const App: React.FC = () => (
             <Route path="/amenities" element={<Amenities />} />
         </Routes>
         <Footer />
+        <Analytics />
     </Router>
 );
 
