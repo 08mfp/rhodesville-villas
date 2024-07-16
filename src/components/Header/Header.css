@@ -1,0 +1,16 @@
+.header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}

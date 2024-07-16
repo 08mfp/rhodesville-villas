@@ -1,0 +1,19 @@
+.amenities {
+    padding: 20px;
+    text-align: center;
+}
+
+.amenities h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.amenities ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.amenities li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
