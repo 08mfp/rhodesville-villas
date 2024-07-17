@@ -57,11 +57,11 @@ const Neighborhood: React.FC = () => {
                                 ))}
                         </ul>
                         <div className="buttons-container">
-                            {visibleCounts[category] > 3 && (
-                                <button onClick={() => handleSeeLess(category)} className="see-less-button">See Less</button>
-                            )}
                             {locations.filter(location => location.category === category).length > visibleCounts[category] && (
                                 <button onClick={() => handleSeeMore(category)} className="see-more-button">See More</button>
+                            )}
+                            {visibleCounts[category] > 5 && (
+                                <button onClick={() => handleSeeLess(category)} className="see-less-button">See Less</button>
                             )}
                         </div>
                     </div>

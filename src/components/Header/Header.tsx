@@ -22,7 +22,7 @@ const Header: React.FC = () => {
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/villas">Villas</Link></li>
                     <li><Link to="/amenities">Amenities</Link></li>
-                    <li><Link to="/neighborhood">Neighborhood</Link></li>
+                    <li><Link to="/neighborhood">Location</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
                 </ul>
