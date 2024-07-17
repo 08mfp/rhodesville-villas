@@ -13,16 +13,9 @@ interface Location {
     name: string;
     description: string;
     category: string;
+    icon: string;
     'time-from-villa': number;
 }
-
-// Define the icon paths
-const iconMap: { [key: string]: string } = {
-    "Shopping Centers:": '/icons/shopping.png',
-    "Schools:": '/icons/education.png',
-    " ": '/icons/main.png', // One space category
-    "Default": '/icons/default.png'
-};
 
 const MapComponent: React.FC = () => {
     const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -40,10 +33,8 @@ const MapComponent: React.FC = () => {
             mapRef.current.on('load', () => {
                 if (mapRef.current) {
                     locations.forEach(location => {
-                        const icon = iconMap[location.category] || iconMap['Default'];
-
                         new mapboxgl.Marker({
-                            element: createMarkerElement(icon)
+                            element: createMarkerElement(location.icon)
                         })
                             .setLngLat([location.lng, location.lat])
                             .setPopup(

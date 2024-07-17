@@ -1,58 +1,65 @@
 [
-{
-    "lat": -15.403841,
-    "lng": 28.312117,
-    "name": "Rhodesville Villas",
-    "description": "",
-    "category": " ",
-    "time-from-villa": 0
-},
-{
-    "lat": -15.397893,
-    "lng": 28.307445,
-    "name": "Manda Hill Mall",
-    "description": "",
-    "category": "Shopping Centers:",
-    "time-from-villa": 5
-},
-{
-    "lat": -15.404753,
-    "lng": 28.314329,
-    "name": "International School of Lusaka",
-    "description": "",
-    "category": "Schools:",
-    "time-from-villa": 3
-},
-{
-    "lat": -15.390611,
-    "lng": 28.321967,
-    "name": "East Park Mall",
-    "description": "",
-    "category": "Shopping Centers:",
-    "time-from-villa": 10
-},
-{
-    "lat": -15.407601, 
-    "lng": 28.310282,
-    "name": "Italian School of Lusaka",
-    "description": "",
-    "category": "Schools:",
-    "time-from-villa": 5
-},
-{
-    "lat": -15.392497,
-    "lng": 28.317237,
-    "name": "Arcades Shopping Centre",
-    "description": "",
-    "category": "Shopping Centers:",
-    "time-from-villa": 5
-},
-{
-    "lat": -15.379895,
-    "lng": 28.319286,
-    "name": "LICS",
-    "description": "",
-    "category": "Schools:",
-    "time-from-villa": 15
-}
+    {
+        "lat": -15.403841,
+        "lng": 28.312117,
+        "name": "Rhodesville Villas",
+        "description": "",
+        "category": " ",
+        "icon": "/icons/main.png",
+        "time-from-villa": 0
+    },
+    {
+        "lat": -15.397893,
+        "lng": 28.307445,
+        "name": "Manda Hill Mall",
+        "description": "",
+        "category": "Shopping Centers:",
+        "icon": "/icons/shopping.png",
+        "time-from-villa": 5
+    },
+    {
+        "lat": -15.404753,
+        "lng": 28.314329,
+        "name": "International School of Lusaka",
+        "description": "",
+        "category": "Schools:",
+        "icon": "/icons/education.png",
+        "time-from-villa": 3
+    },
+    {
+        "lat": -15.390611,
+        "lng": 28.321967,
+        "name": "East Park Mall",
+        "description": "",
+        "category": "Shopping Centers:",
+        "icon": "/icons/shopping.png",
+        "time-from-villa": 10
+    },
+    {
+        "lat": -15.407601,
+        "lng": 28.310282,
+        "name": "Italian School of Lusaka",
+        "description": "",
+        "category": "Schools:",
+        "icon": "/icons/education.png",
+        "time-from-villa": 5
+    },
+    {
+        "lat": -15.392497,
+        "lng": 28.317237,
+        "name": "Arcades Shopping Centre",
+        "description": "",
+        "category": "Shopping Centers:",
+        "icon": "/icons/shopping.png",
+        "time-from-villa": 5
+    },
+    {
+        "lat": -15.379895,
+        "lng": 28.319286,
+        "name": "LICS",
+        "description": "",
+        "category": "Schools:",
+        "icon": "/icons/education.png",
+        "time-from-villa": 15
+    }
 ]
