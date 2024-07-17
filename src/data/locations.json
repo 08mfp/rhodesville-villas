@@ -45,15 +45,6 @@
         "time-from-villa": 3
     },
     {
-        "lat": -15.427323, 
-        "lng": 28.297463,
-        "name": "Licef School",
-        "description": "",
-        "category": "Schools:",
-        "icon": "/icons/education.png",
-        "time-from-villa": 15
-    },
-    {
         "lat": -15.392030, 
         "lng": 28.327739,
         "name": "University of Zambia (UNZA)",
