@@ -11,3 +11,7 @@
 .neighborhood p {
     font-size: 1.2em;
 }
+
+.map-container {
+    margin-top: 20px;
+}
