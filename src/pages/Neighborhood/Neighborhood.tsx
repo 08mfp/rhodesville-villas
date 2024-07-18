@@ -7,22 +7,22 @@ const categories = Array.from(new Set(locations.map(location => location.categor
 
 const Neighborhood: React.FC = () => {
     const [visibleCounts, setVisibleCounts] = useState<{ [key: string]: number }>(
-        categories.reduce((acc, category) => ({ ...acc, [category]: 5 }), {})
+        categories.reduce((acc, category) => ({ ...acc, [category]: 3 }), {})
     );
 
     const handleSeeMore = (category: string) => {
         setVisibleCounts({
             ...visibleCounts,
-            [category]: visibleCounts[category] + 5
+            [category]: visibleCounts[category] + 3
         });
     };
-
     const handleSeeLess = (category: string) => {
         setVisibleCounts({
             ...visibleCounts,
-            [category]: Math.max(5, visibleCounts[category] - 5)
+            [category]: 3
         });
     };
+
 
     return (
         <div className="neighborhood">
@@ -57,11 +57,11 @@ const Neighborhood: React.FC = () => {
                                 ))}
                         </ul>
                         <div className="buttons-container">
+                            {visibleCounts[category] > 3 && locations.filter(location => location.category === category).length > 2 && (
+                                <button onClick={() => handleSeeLess(category)} className="see-less-button">See Less</button>
+                            )}
                             {locations.filter(location => location.category === category).length > visibleCounts[category] && (
                                 <button onClick={() => handleSeeMore(category)} className="see-more-button">See More</button>
-                            )}
-                            {visibleCounts[category] > 5 && (
-                                <button onClick={() => handleSeeLess(category)} className="see-less-button">See Less</button>
                             )}
                         </div>
                     </div>

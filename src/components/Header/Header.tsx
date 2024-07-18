@@ -20,10 +20,8 @@ const Header: React.FC = () => {
                 <ul className={`navbar-menu ${isOpen ? 'open' : ''}`}>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
-                    <li><Link to="/villas">Villas</Link></li>
                     <li><Link to="/amenities">Amenities</Link></li>
                     <li><Link to="/neighborhood">Location</Link></li>
-                    <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </nav>

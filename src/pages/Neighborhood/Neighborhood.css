@@ -76,9 +76,18 @@ body {
     margin-top: 10px;
 }
 
-.see-more-button, .see-less-button {
+.see-less-button {
     padding: 5px 10px;
-    background-color: #007BFF;
+    background-color: #ff2a00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.see-more-button {
+    padding: 5px 10px;
+    background-color: #00b368;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -86,7 +95,7 @@ body {
 }
 
 .see-more-button:hover, .see-less-button:hover {
-    background-color: #0056b3;
+    background-color: #00b368;
 }
 
 /* Medium Devices */

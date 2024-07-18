@@ -2,9 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
-import Villas from './pages/Villas/Villas';
 import Contact from './pages/Contact/Contact';
-import FAQ from './pages/FAQ/FAQ';
 import Neighborhood from './pages/Neighborhood/Neighborhood';
 import Amenities from './pages/Amenities/Amenities';
 import Header from './components/Header/Header';
@@ -19,9 +17,7 @@ const App: React.FC = () => (
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/villas" element={<Villas />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
             <Route path="/neighborhood" element={<Neighborhood />} />
             <Route path="/amenities" element={<Amenities />} />
         </Routes>
