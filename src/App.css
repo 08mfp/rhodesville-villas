@@ -15,7 +15,6 @@
 }
 
 .App-header {
-  /* Remove background-color to avoid conflict */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
