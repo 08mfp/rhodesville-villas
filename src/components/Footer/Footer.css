@@ -7,3 +7,33 @@
     bottom: 0;
     width: 100%;
 }
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-text {
+    margin-left: 8px;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .footer-text {
+        display: inline;
+    }
+}

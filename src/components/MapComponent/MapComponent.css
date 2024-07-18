@@ -1,19 +1,21 @@
 .map-container {
     width: 100%;
-    height: 600px;
+    height: 400px; /* Adjusted height for a more rectangular shape */
     margin: 0 auto 40px;
+    border: 2px solid #1b263b; /* Added border with the specified color */
 }
 
 /* Medium Devices */
 @media (max-width: 1199px) {
     .map-container {
-        height: 500px;
+        width: 100%;
+        height: 300px;
     }
 }
 
 /* Small Devices */
 @media (max-width: 767px) {
     .map-container {
-        height: 400px;
+        height: 200px; /* Adjusted height for smaller devices */
     }
 }

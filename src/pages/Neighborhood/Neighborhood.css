@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #e0e1dd;
 }
 
 .neighborhood {
@@ -11,12 +12,6 @@ body {
     margin: 20px auto;
     max-width: 90%;
 }
-
-.section-header {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
 .category-section {
     padding: 15px;
     margin-bottom: 20px;
@@ -24,7 +19,8 @@ body {
 
 .category-header {
     margin: 20px 0 10px;
-    font-size: 20px;
+    font-size: 30px;
+    color: #1b263b;
 }
 
 .distance-list {
@@ -41,12 +37,22 @@ body {
     margin-bottom: 10px;
     width: 80%; /* Adjust this width to your preference */
     max-width: 400px; /* Ensure the cards don't get too wide */
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: #778da9;
+    border: 2px solid #415a77;
+    color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px #415a77;
     text-align: left;
 }
+
+.distance-card p.time {
+    color: #fff;
+    text-align: right;
+}
+
+/* .distance-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
 
 .distance-card-header {
     display: flex;
@@ -62,6 +68,7 @@ body {
 .distance-card h3 {
     margin: 0 0 10px;
     font-size: 16px;
+    color: #1b263b;
 }
 
 .distance-card p {
@@ -101,10 +108,10 @@ body {
 /* Medium Devices */
 @media (max-width: 1199px) {
     .section-header {
-        font-size: 20px;
+        font-size: 26px;
     }
     .category-header {
-        font-size: 18px;
+        font-size: 22px;
     }
     .distance-card h3 {
         font-size: 14px;
@@ -117,10 +124,10 @@ body {
 /* Small Devices */
 @media (max-width: 767px) {
     .section-header {
-        font-size: 18px;
+        font-size: 24px;
     }
     .category-header {
-        font-size: 16px;
+        font-size: 20px;
     }
     .distance-card h3 {
         font-size: 12px;

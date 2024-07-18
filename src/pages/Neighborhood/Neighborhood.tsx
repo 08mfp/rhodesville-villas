@@ -51,8 +51,8 @@ const Neighborhood: React.FC = () => {
                                             />
                                             <h3>{location.name}</h3>
                                         </div>
-                                        <p>{location.description}</p>
-                                        <p>{location['time-from-villa']} minutes away</p>
+                                        <p className='descr'>{location.description}</p>
+                                        <p className='time'>{location['time-from-villa']} minutes away</p>
                                     </li>
                                 ))}
                         </ul>
