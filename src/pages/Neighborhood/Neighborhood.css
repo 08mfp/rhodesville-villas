@@ -1,17 +1,131 @@
-.neighborhood {
-    padding: 20px;
-    text-align: center;
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.neighborhood h1 {
-    font-size: 2.5em;
+.neighborhood {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+.section-header {
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-.neighborhood p {
-    font-size: 1.2em;
+.category-section {
+    padding: 15px;
+    margin-bottom: 20px;
 }
 
-.map-container {
-    margin-top: 20px;
+.category-header {
+    margin: 20px 0 10px;
+    font-size: 20px;
+}
+
+.distance-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.distance-card {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%; /* Adjust this width to your preference */
+    max-width: 400px; /* Ensure the cards don't get too wide */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.distance-card-header {
+    display: flex;
+    align-items: center;
+}
+
+.location-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.distance-card h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.distance-card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.see-less-button {
+    padding: 5px 10px;
+    background-color: #ff2a00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.see-more-button {
+    padding: 5px 10px;
+    background-color: #00b368;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.see-more-button:hover, .see-less-button:hover {
+    background-color: #00b368;
+}
+
+/* Medium Devices */
+@media (max-width: 1199px) {
+    .section-header {
+        font-size: 20px;
+    }
+    .category-header {
+        font-size: 18px;
+    }
+    .distance-card h3 {
+        font-size: 14px;
+    }
+    .distance-card p {
+        font-size: 12px;
+    }
+}
+
+/* Small Devices */
+@media (max-width: 767px) {
+    .section-header {
+        font-size: 18px;
+    }
+    .category-header {
+        font-size: 16px;
+    }
+    .distance-card h3 {
+        font-size: 12px;
+    }
+    .distance-card p {
+        font-size: 10px;
+    }
 }
