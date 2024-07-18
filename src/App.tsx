@@ -9,7 +9,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { Analytics } from "@vercel/analytics/react"
 
-import './App.css';
+// import './App.css';
 
 const App: React.FC = () => (
     <Router>
