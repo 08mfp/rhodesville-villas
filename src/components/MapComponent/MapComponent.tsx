@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import './MapComponent.css';
 import locations from '../../data/locations.json'; // Import the JSON file
 
 // Set your Mapbox access token here
@@ -22,12 +21,15 @@ const MapComponent: React.FC = () => {
     const mapRef = useRef<mapboxgl.Map | null>(null);
 
     useEffect(() => {
+        const isMobile = window.innerWidth < 768;
+        const zoomLevel = isMobile ? 13 : 14;
+
         if (mapContainerRef.current) {
             mapRef.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
                 style: 'mapbox://styles/mapbox/streets-v12',
                 center: [28.312117, -15.403861],
-                zoom: 14,
+                zoom: zoomLevel,
             });
 
             mapRef.current.on('load', () => {
@@ -60,7 +62,9 @@ const MapComponent: React.FC = () => {
         return img;
     };
 
-    return <div className="map-container" ref={mapContainerRef} />;
+    return (
+        <div className="border-4 border-gray-600 dark:border-gray-300 rounded-lg overflow-hidden h-72 md:h-96" ref={mapContainerRef} /> // Adjusted height for mobile
+    );
 };
 
 export default MapComponent;
