@@ -23,7 +23,6 @@ const Neighborhood: React.FC = () => {
         });
     };
 
-
     return (
         <div className="neighborhood">
             <h1>Location</h1>
@@ -33,39 +32,41 @@ const Neighborhood: React.FC = () => {
             </div>
             <div className="distances-section">
                 <h1>Nearby Landmarks</h1>
-                {categories.map(category => (
-                    <div key={category} className="category-section">
-                        <h3 className="category-header">{category}</h3>
-                        <ul className="distance-list">
-                            {locations
-                                .filter(location => location.category === category)
-                                .sort((a, b) => a['time-from-villa'] - b['time-from-villa'])
-                                .slice(0, visibleCounts[category])
-                                .map((location, index) => (
-                                    <li key={index} className="distance-card">
-                                        <div className="distance-card-header">
-                                            <img
-                                                src={location.icon}
-                                                alt={location.category}
-                                                className="location-icon"
-                                            />
-                                            <h3>{location.name}</h3>
-                                        </div>
-                                        <p className='descr'>{location.description}</p>
-                                        <p className='time'>{location['time-from-villa']} minutes away</p>
-                                    </li>
-                                ))}
-                        </ul>
-                        <div className="buttons-container">
-                            {visibleCounts[category] > 3 && locations.filter(location => location.category === category).length > 2 && (
-                                <button onClick={() => handleSeeLess(category)} className="see-less-button">See Less</button>
-                            )}
-                            {locations.filter(location => location.category === category).length > visibleCounts[category] && (
-                                <button onClick={() => handleSeeMore(category)} className="see-more-button">See More</button>
-                            )}
+                <div className="category-container">
+                    {categories.map(category => (
+                        <div key={category} className="category-section">
+                            <h3 className="category-header">{category}</h3>
+                            <ul className="distance-list">
+                                {locations
+                                    .filter(location => location.category === category)
+                                    .sort((a, b) => a['time-from-villa'] - b['time-from-villa'])
+                                    .slice(0, visibleCounts[category])
+                                    .map((location, index) => (
+                                        <li key={index} className="distance-card">
+                                            <div className="distance-card-header">
+                                                <img
+                                                    src={location.icon}
+                                                    alt={location.category}
+                                                    className="location-icon"
+                                                />
+                                                <h3>{location.name}</h3>
+                                            </div>
+                                            <p className='descr'>{location.description}</p>
+                                            <p className='time'>{location['time-from-villa']} minutes away</p>
+                                        </li>
+                                    ))}
+                            </ul>
+                            <div className="buttons-container">
+                                {visibleCounts[category] > 3 && locations.filter(location => location.category === category).length > 2 && (
+                                    <button onClick={() => handleSeeLess(category)} className="see-less-button">See Less</button>
+                                )}
+                                {locations.filter(location => location.category === category).length > visibleCounts[category] && (
+                                    <button onClick={() => handleSeeMore(category)} className="see-more-button">See More</button>
+                                )}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );
