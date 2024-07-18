@@ -2,11 +2,11 @@ import React from 'react';
 import apartmentImage from '../../../src/assets/images/apartment.jpeg';
 
 const About: React.FC = () => (
-    <div className="bg-gray-50 dark:bg-gray-800 p-8 min-h-screen">
+    <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">About Us</h1>
 
         {/* Images Row for Desktop */}
-        <div className="hidden md:flex justify-center space-x-8 mb-12">
+        <div className="hidden md:flex justify-center space-x-8 mb-8">
             <img
                 src={apartmentImage}
                 alt="About Us"
@@ -25,7 +25,7 @@ const About: React.FC = () => (
         </div>
 
         {/* Individual Images for Mobile */}
-        <div className="flex flex-col items-center mb-12 md:hidden">
+        <div className="flex flex-col items-center mb-8 md:hidden">
             <img
                 src={apartmentImage}
                 alt="About Us"
@@ -38,7 +38,7 @@ const About: React.FC = () => (
             </p>
         </div>
 
-        <div className="flex flex-col items-center mb-12 md:hidden">
+        <div className="flex flex-col items-center mb-8 md:hidden">
             <img
                 src={apartmentImage}
                 alt="Strategic Location"
@@ -51,7 +51,7 @@ const About: React.FC = () => (
             </p>
         </div>
 
-        <div className="flex flex-col items-center mb-12 md:hidden">
+        <div className="flex flex-col items-center mb-8 md:hidden">
             <img
                 src={apartmentImage}
                 alt="Community"
@@ -64,7 +64,7 @@ const About: React.FC = () => (
         </div>
 
         {/* Paragraphs for Desktop */}
-        <div className="hidden md:flex flex-col items-center space-y-12">
+        <div className="hidden md:flex flex-col items-center space-y-8">
             <p className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 text-center">
                 At Rhodesville, we are committed to providing luxury living spaces that blend modern design with
                 the serene beauty of our surroundings. Our mission is to create a community where residents can
