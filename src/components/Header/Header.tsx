@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/icons/whatsapp.webp';
+import logo from '../../assets/images/logo.png';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,8 +9,8 @@ const Header: React.FC = () => {
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src={logo} className="h-8" alt="Logo" />
-                    <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">Rhodesville</span> {/* Increased text size */}
+                    <img src={logo} className="h-20" alt="Logo" />
+                    <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">Rhodesville</span>
                 </Link>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
@@ -32,12 +32,16 @@ const Header: React.FC = () => {
                 </button>
                 <div className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
                     <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:justify-between rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li className="md:ml-auto">
+                        {/* <li className="md:ml-auto">
                             <NavLink to="/" onClick={() => setIsOpen(false)}>Home</NavLink>
+                        </li> */}
+                        <li>
+                            <NavLink to="/about-villas" onClick={() => setIsOpen(false)}>Villas</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/about" onClick={() => setIsOpen(false)}>About</NavLink>
+                            <NavLink to="/about-apartments" onClick={() => setIsOpen(false)}>Apartments</NavLink>
                         </li>
+                        
                         <li>
                             <NavLink to="/amenities" onClick={() => setIsOpen(false)}>Amenities</NavLink>
                         </li>
@@ -60,7 +64,7 @@ const NavLink: React.FC<any> = ({ to, children, ...props }) => {
         <Link
             to={to}
             {...props}
-            className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+            className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-lg md:text-xl"
         >
             {children}
         </Link>
