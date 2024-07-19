@@ -1,14 +1,14 @@
 @import './tailwind.css';
 
 html {
-  background-color: #f9fafb;
+  background-color: #1A202C;
   color: #111827;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #f9fafb;
+  background-color: #1A202C;
   color: #111827;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,7 +16,7 @@ body {
 }
 
 #root {
-  background-color: #f9fafb;
+  background-color: #1A202C;
   min-height: 100vh;
 }
 
