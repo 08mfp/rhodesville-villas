@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
+import AboutVillas from './pages/About-villas/About';
+import AboutApartments from './pages/About-apartments/About';
 import Contact from './pages/Contact/Contact';
 import Neighborhood from './pages/Neighborhood/Neighborhood';
 import Amenities from './pages/Amenities/Amenities';
@@ -16,7 +17,8 @@ const App: React.FC = () => (
         <Header />
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about-villas" element={<AboutVillas/>} />
+            <Route path="/about-apartments" element={<AboutApartments/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/neighborhood" element={<Neighborhood />} />
             <Route path="/amenities" element={<Amenities />} />
