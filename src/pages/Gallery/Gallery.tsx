@@ -1,62 +1,61 @@
+//! NEED TO CHANGE FOLDER AND FILE NAME< AND RELINK PROPERLY.
+//! THIS IS A TEMPORARY FOX
 import React, { useState } from 'react';
 import apartmentImage from '../../../src/assets/images/apartment.jpeg';
 
-const imageGallery = [
-    { src: apartmentImage, category: 'Property' },
-    { src: apartmentImage, category: 'Apartment' },
-    { src: apartmentImage, category: 'Kitchen' },
-    { src: apartmentImage, category: 'Living Rooms' },
-    { src: apartmentImage, category: 'Bedrooms' },
-    { src: apartmentImage, category: 'Pool' },
-    { src: apartmentImage, category: 'Garden' },
-    { src: apartmentImage, category: 'Other' },
-    // Add more images as needed
-];
-
-const categories = [
-    'All categories', 
-    'Property', 
-    'Apartment', 
-    'Kitchen', 
-    'Living Rooms', 
-    'Bedrooms', 
-    'Pool', 
-    'Garden', 
-    'Other'
-];
-
 const Gallery: React.FC = () => {
-    const [selectedCategory, setSelectedCategory] = useState('All categories');
+  // State to manage availability
+  const [availability, setAvailability] = useState(
+    [true, true, true, true, true] // Initially, all apartments are available
+  );
 
-    const filteredImages = selectedCategory === 'All categories' 
-        ? imageGallery 
-        : imageGallery.filter(image => image.category === selectedCategory);
+  const handleBooking = (apartmentNumber: number) => {
+    // Logic to handle booking (e.g., update availability, contact owner, etc.)
+    const newAvailability = [...availability];
+    newAvailability[apartmentNumber] = false;
+    setAvailability(newAvailability);
+    alert(`Apartment ${apartmentNumber + 1} booked!`);
+  };
 
-    return (
-        <div className="container mx-auto p-4 md:p-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 text-center">Gallery</h1>
+  return (
+    <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8">
+      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+        Availability
+      </h1>
 
-            <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
-                {categories.map((category, index) => (
-                    <button 
-                        key={index} 
-                        type="button" 
-                        onClick={() => setSelectedCategory(category)}
-                        className={`text-${category === selectedCategory ? 'white' : 'gray-900'} hover:text-white border ${category === selectedCategory ? 'border-blue-600 bg-blue-700' : 'border-gray-300 bg-gray-100 dark:border-gray-700 dark:bg-gray-800'} focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-2 text-center me-3 mb-3 dark:text-${category === selectedCategory ? 'white' : 'gray-300'} dark:focus:ring-gray-800 text-sm md:text-base`}>
-                        {category}
-                    </button>
-                ))}
+      {/* Apartment Cards */}
+      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:max-w-3/4 mx-auto">
+          {[1, 2, 3, 4, 5].map((apartmentNumber) => (
+            <div
+              key={apartmentNumber}
+              className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-12"
+            >
+              <img
+                src={apartmentImage}
+                alt={`Apartment ${apartmentNumber}`}
+                className="w-full h-48 md:h-64 object-cover border-4 border-gray-600 dark:border-gray-300 rounded-lg shadow-lg mb-4"
+              />
+              <h2 className="text-gray-900 dark:text-white text-xl md:text-3xl font-extrabold mb-2">
+                Apartment {apartmentNumber}
+              </h2>
+              <p className="text-sm md:text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">
+                {/* You can add apartment-specific details here */}
+                Description for apartment {apartmentNumber}...
+              </p>
+              <button
+                onClick={() => handleBooking(apartmentNumber - 1)}
+                disabled={!availability[apartmentNumber - 1]}
+                className="bg-blue-500 text-white px-4 py-2 rounded-md disabled:opacity-50"
+              >
+                {availability[apartmentNumber - 1] ? 'Is still under contruction' : 'Is still under contruction'}
+              </button>
             </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {filteredImages.map((image, index) => (
-                    <div key={index}>
-                        <img className="h-auto max-w-full rounded-lg" src={image.src} alt="" />
-                    </div>
-                ))}
-            </div>
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Gallery;

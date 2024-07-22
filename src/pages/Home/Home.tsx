@@ -1,20 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import apartmentimage from '../../assets/images/apartment.jpeg';
+import apartmentImage from '../../../src/assets/images/apartment.jpeg';
+
+const imageGallery = [
+    { src: apartmentImage, category: 'Property' },
+    { src: apartmentImage, category: 'Apartment' },
+    { src: apartmentImage, category: 'Kitchen' },
+    { src: apartmentImage, category: 'Living Rooms' },
+    { src: apartmentImage, category: 'Bedrooms' },
+    { src: apartmentImage, category: 'Pool' },
+    { src: apartmentImage, category: 'Garden' },
+    { src: apartmentImage, category: 'Other' },
+    // Add more images as needed
+];
+
+const categories = [
+    'All categories', 
+    'Property', 
+    'Apartment', 
+    'Kitchen', 
+    'Living Rooms', 
+    'Bedrooms', 
+    'Pool', 
+    'Garden', 
+    'Other'
+];
+
+const Gallery: React.FC = () => {
+    const [selectedCategory, setSelectedCategory] = useState('All categories');
+
+    const filteredImages = selectedCategory === 'All categories' 
+        ? imageGallery 
+        : imageGallery.filter(image => image.category === selectedCategory);
+
+    return (
+      <div className="container mx-auto p-4 md:p-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-white dark:text-white mb-8 text-center">Gallery</h1>
+        <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
+          {categories.map((category, index) => (
+            <button 
+              key={index} 
+              type="button" 
+              onClick={() => setSelectedCategory(category)}
+              className={`text-${category === selectedCategory ? 'white' : 'gray-900'} hover:text-red-500 border ${category === selectedCategory ? 'border-blue-600 bg-blue-700' : 'border-gray-300 bg-gray-100 dark:border-gray-700 dark:bg-gray-800'} focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-2 text-center me-3 mb-3 dark:text-${category === selectedCategory ? 'white' : 'gray-300'} dark:focus:ring-gray-800 text-sm md:text-base`}>
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {filteredImages.map((image, index) => (
+            <div key={index}>
+              <img className="h-auto max-w-full rounded-lg" src={image.src} alt="" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+};
 
 const Home: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [showModal, setShowModal] = useState(true);
-  const images = [apartmentimage, apartmentimage, apartmentimage, apartmentimage, apartmentimage];
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  };
-
   const closeModal = () => setShowModal(false);
 
   return (
@@ -35,7 +82,7 @@ const Home: React.FC = () => {
               </div>
               <div className="p-4 md:p-5 space-y-4">
                 <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  This website is still under maintanance. Some features may not work as expected. We apologize for any inconvenience caused.
+                  This website is still under maintenance. Some features may not work as expected. We apologize for any inconvenience caused.
                   -og
                 </p>
               </div>
@@ -48,63 +95,47 @@ const Home: React.FC = () => {
       )}
 
       {/* Jumbotron Section */}
-      <section className="bg-center bg-no-repeat bg-cover bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
-        <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Rhodesville Villas</h1>
-          <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Opening August 2024</p>
-          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-            <Link to="/about-villas" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-              Learn more
-              <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-              </svg>
-            </Link>
-            <Link to="/neighborhood" className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
-              Location
-            </Link>
+      <section
+        className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat"
+      >
+        <div
+          className="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
+        ></div>
+
+        <div
+          className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
+        >
+          <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+            <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
+              Step into a world of luxury and comfort at
+              <strong className="block font-extrabold text-rose-500"> Rhodesville Villas </strong>
+            </h1>
+
+            <p className="mt-4 max-w-lg text-white sm:text-xl/relaxed">
+            RhodesVille Villas is a luxury residential development located in the heart of Lusaka, Zambia, designed to provide a comfortable and luxurious living experience.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4 text-center">
+              <a
+                href="#"
+                className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
+              >
+                Opening August 2024
+              </a>
+
+              <a
+                href="about-villas"
+                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
+              >
+                Learn More
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Image Gallery Section */}
-      <div id="gallery" className="relative w-full py-8 flex justify-center bg-gray-50 dark:bg-gray-800 p-4 md:p-8">
-        {/* Carousel wrapper */}
-        <div className="relative w-3/5 h-48 md:h-96 border-4 border-gray-700 dark:border-gray-300 rounded-lg overflow-hidden">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${currentIndex === index ? 'opacity-100' : 'opacity-0'}`}
-            >
-              <img src={image} className="block w-full h-full object-cover" alt={`Gallery Image ${index + 1}`} />
-            </div>
-          ))}
-        </div>
-        {/* Slider controls */}
-        <button
-          type="button"
-          className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-          onClick={prevSlide}
-        >
-          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-700 dark:bg-white group-hover:bg-gray-600 dark:group-hover:bg-gray-200 group-focus:ring-4 group-focus:ring-gray-500 dark:group-focus:ring-gray-300 group-focus:outline-none">
-            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
-            </svg>
-            <span className="sr-only">Previous</span>
-          </span>
-        </button>
-        <button
-          type="button"
-          className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-          onClick={nextSlide}
-        >
-          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-700 dark:bg-white group-hover:bg-gray-600 dark:group-hover:bg-gray-200 group-focus:ring-4 group-focus:ring-gray-500 dark:group-focus:ring-gray-300 group-focus:outline-none">
-            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
-            </svg>
-            <span className="sr-only">Next</span>
-          </span>
-        </button>
-      </div>
+      {/* Gallery Component */}
+      <Gallery />
     </div>
   );
 };

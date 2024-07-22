@@ -6,7 +6,7 @@ import logo from '../../assets/images/logo.png';
 
 const Footer: React.FC = () => (
     <footer className="bg-gray-100 dark:bg-gray-700 py-4 md:py-8 w-full">
-        <div className="max-w-screen-xl mx-auto px-4">
+        <div className="max-w-screen-l mx-auto px-4">
             <div className="sm:flex sm:items-center sm:justify-between">
                 <div className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                     <img src={logo} alt="WhatsApp" className="h-8" />
