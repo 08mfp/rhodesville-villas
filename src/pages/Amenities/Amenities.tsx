@@ -17,10 +17,6 @@ const Amenities: React.FC = () => {
 
   const sections = [
     {
-      title: 'Swimming Pool',
-      content: 'All villas come with a private swimming pool for you to relax and enjoy the sun.',
-    },
-    {
       title: 'DSTV',
       content: 'Our villas come with DSTV so you can enjoy your favorite shows and movies.',
     },
@@ -33,6 +29,14 @@ const Amenities: React.FC = () => {
       content: 'Our villas come with inverter and solar power so you never have to worry about loadshedding.',
     },
     {
+      title: 'Private Garden',
+      content: 'Each villa includes a private back garden.',
+    },
+    {
+      title: 'Swimming Pool',
+      content: 'All villas come with a private swimming pool for you to relax and enjoy the sun.',
+    },
+    {
       title: 'Free Parking',
       content: 'The property has a large parking area for all of our guests.',
     },
@@ -41,12 +45,20 @@ const Amenities: React.FC = () => {
       content: 'Our 24/7 security ensures that you and your loved ones are safe and secure at all times.',
     },
     {
-      title: 'Appliances',
-      content: 'Each villa comes with a fully equipped with all the necessary appliances.',
+      title: 'Garbage Collection',
+      content: 'We offer weekly garbage collection for all of our guests.',
     },
     {
-      title: 'Private Garden',
-      content: 'Each villa includes a private back garden.',
+      title: 'Appliances',
+      content: 'Each villa comes with a fully equipped with all the necessary kitchen appliances and washing machines.',
+    },
+    {
+      title: 'Air Conditioning',
+      content: 'All of our villas come with air conditioning to keep you cool during the hot summer months.',
+    },
+    {
+      title: 'Cleaning Services',
+      content: 'We offer weekly cleaning services for all of our guests *',
     },
   ];
 
@@ -109,7 +121,7 @@ const Amenities: React.FC = () => {
         <p className="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">If you have any questions or need further assistance, feel free to contact us.</p>
         <div className="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
           <Link to="/contact" className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-            <svg className="me-3 w-7 h-7" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="me-3 w-7 h-7" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"> 
               <path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z"/>
             </svg>
             Contact Us
@@ -137,7 +149,10 @@ const Amenities: React.FC = () => {
         <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
         <a href="#" className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">19 reviews</a>
       </div>
+      <p className="mb-2 text-gray-500 dark:text-gray-400">* available for an additional fee </p>
     </div>
+
+
   );
 };
 
