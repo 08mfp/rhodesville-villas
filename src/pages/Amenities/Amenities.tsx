@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Amenities.css';
 
 const Amenities: React.FC = () => {
-  const [openSections, setOpenSections] = useState<number[]>([0, 1, 2]); // By default, the first three sections are open
+  const [openSections, setOpenSections] = useState<number[]>([]); // By default, the first three sections are open
 
   const toggleSection = (section: number) => {
     if (openSections.includes(section)) {
@@ -66,7 +66,7 @@ const Amenities: React.FC = () => {
     <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 min-h-screen flex flex-col">
       <div>
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">Amenities</h1>
-        <p className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 mb-8 text-center">All of our villas include:</p>
+        <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 text-center">Tap on any section to read more:</p>
         <div id="accordion-open" data-accordion="open">
           {sections.map((section, index) => (
             <div key={index}>

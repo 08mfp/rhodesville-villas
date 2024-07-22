@@ -10,7 +10,7 @@ const Footer: React.FC = () => (
             <div className="sm:flex sm:items-center sm:justify-between">
                 <div className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                     <img src={logo} alt="WhatsApp" className="h-8" />
-                    <span className="self-center text-2xl md:text-3xl font-semibold whitespace-nowrap dark:text-white">Rhodesville Villas & Apartments</span>
+                    <span className="self-center text-2xl md:text-3xl font-semibold whitespace-nowrap dark:text-white">Rhodesville Villas</span>
                 </div>
                 <div className="flex space-x-4">
                     <a href="https://wa.me/yourphonenumber" className="flex items-center text-base md:text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline space-x-2">
