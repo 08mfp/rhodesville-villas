@@ -20,6 +20,7 @@ const Contact: React.FC = () => {
 
     return (
         <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8">
+            <br/>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">Contact Us</h1>
             <p className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 mb-8 text-center">Get in touch with us for more information.</p>
             
@@ -56,7 +57,7 @@ const Contact: React.FC = () => {
                                     </svg>
                                 </button>
                             </address>
-                            <button className={`bg-${index === 0 ? 'blue' : index === 1 ? 'red' : index === 2 ? 'red' : 'green'}-500 text-white py-2 px-4 rounded mt-4`} onClick={() => handleShow(`${title} content here...`)}>More Info</button>
+                            <button className={`bg-${index === 0 ? 'blue' : index === 1 ? 'red' : index === 2 ? 'red' : 'green'}-500 text-white py-2 px-4 rounded mt-4`} onClick={() => handleShow(`${title} `)}>More Info</button>
                         </div>
                     ))}
                 </div>
@@ -86,7 +87,7 @@ const Contact: React.FC = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
-                        </div>x
+                        </div>
                         <p className="text-gray-700 dark:text-gray-300">{modalContent}</p>
                         <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded" onClick={handleClose}>Close</button>
                     </div>

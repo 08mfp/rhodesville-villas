@@ -10,7 +10,7 @@ const Footer: React.FC = () => (
             <div className="sm:flex sm:items-center sm:justify-between">
                 <div className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                     <img src={logo} alt="WhatsApp" className="h-8" />
-                    <span className="self-center text-2xl md:text-3xl font-semibold whitespace-nowrap dark:text-white">Rhodesville Villas</span>
+                    <span className="self-center text-xl md:text-3xl font-semibold whitespace-nowrap dark:text-white">Rhodesville Villas</span>
                 </div>
                 <div className="flex space-x-4">
                     <a href="https://wa.me/yourphonenumber" className="flex items-center text-base md:text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline space-x-2">
@@ -24,11 +24,14 @@ const Footer: React.FC = () => (
                 </div>
             </div>
             <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-600 lg:my-8" />
-            <span className="block text-sm md:text-base text-gray-500 sm:text-center dark:text-gray-400"><i>By using this site, you agree to our Terms and Conditions, Privacy Policy, and Cookie Policy, acknowledge our disclaimer of liability, 
-            intellectual property rights, and that information provided is not professional, 
-            with jurisdiction governed by The Republic of Zambia.</i></span>  
+            <span className="block text-xs sm:text-sm md:text-base text-gray-500 sm:text-center dark:text-gray-400">
+                <i>By using this site, you agree to our Terms, Privacy Policy, and Cookie Policy, acknowledge our liability disclaimer, intellectual property rights, and that information is not professional.</i>
+            </span>  
             <br/>
-            <span className="block text-sm md:text-base text-gray-500 sm:text-center dark:text-gray-400">© 2024 Rhodesville Villas, managed by no name company. All rights reserved. </span>    
+            <span className="block text-xs sm:text-sm md:text-base text-gray-500 sm:text-center dark:text-gray-400">
+                © 2024 Rhodesville Villas, managed by no name company. All rights reserved.
+            </span>
+  
         </div>
     </footer>
 );

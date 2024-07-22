@@ -24,6 +24,7 @@ const Neighborhood: React.FC = () => {
 
     return (
         <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 min-h-screen">
+            <br/>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">Location</h1>
             <p className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 mb-8 text-center">Explore our neighbourhood using the map below:</p>
             {/* <div className="mb-8 md:mb-12 border-4 border-gray-600 dark:border-gray-300 p-2 md:p-4 rounded-lg"> */}

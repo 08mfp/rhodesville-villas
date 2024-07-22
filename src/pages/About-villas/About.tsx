@@ -4,7 +4,8 @@ import apartmentImage from '../../../src/assets/images/apartment.jpeg';
 
 const AboutVillas: React.FC = () => (
     <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8">
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">About Us</h1>
+        <br/>
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">About Us</h1>
         {/* <p className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 mb-8 text-center">Experience the Ultimate in Luxury and Elegance</p> */}
 
             

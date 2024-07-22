@@ -1,58 +1,55 @@
-//! NEED TO CHANGE FOLDER AND FILE NAME< AND RELINK PROPERLY.
-//! THIS IS A TEMPORARY FOX
-import React, { useState } from 'react';
+import React from 'react';
 import apartmentImage from '../../../src/assets/images/apartment.jpeg';
 
 const Gallery: React.FC = () => {
   // State to manage availability
-  const [availability, setAvailability] = useState(
-    [true, true, true, true, true] // Initially, all apartments are available
-  );
+  const apartments = [
+    { id: 1, name: 'Villa 1', status: 'Ready for viewing', statusColor: 'green', email: 'Contact us now to arrange a Viewing' },
+    { id: 2, name: 'Villa 2', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
+    { id: 3, name: 'Villa 3', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
+    { id: 4, name: 'Villa 4', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
+    { id: 5, name: 'Villa 5', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' }
+  ];
 
-  const handleBooking = (apartmentNumber: number) => {
-    // Logic to handle booking (e.g., update availability, contact owner, etc.)
-    const newAvailability = [...availability];
-    newAvailability[apartmentNumber] = false;
-    setAvailability(newAvailability);
-    alert(`Apartment ${apartmentNumber + 1} booked!`);
+  const statusStyles: { [key: string]: string } = {
+    green: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+    red: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
+  };
+  
+  const dotStyles: { [key: string]: string } = {
+    green: 'bg-green-500',
+    red: 'bg-red-500'
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8">
-      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-        Availability
-      </h1>
-
-      {/* Apartment Cards */}
-      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:max-w-3/4 mx-auto">
-          {[1, 2, 3, 4, 5].map((apartmentNumber) => (
-            <div
-              key={apartmentNumber}
-              className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-12"
-            >
-              <img
-                src={apartmentImage}
-                alt={`Apartment ${apartmentNumber}`}
-                className="w-full h-48 md:h-64 object-cover border-4 border-gray-600 dark:border-gray-300 rounded-lg shadow-lg mb-4"
-              />
-              <h2 className="text-gray-900 dark:text-white text-xl md:text-3xl font-extrabold mb-2">
-                Apartment {apartmentNumber}
-              </h2>
-              <p className="text-sm md:text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">
-                {/* You can add apartment-specific details here */}
-                Description for apartment {apartmentNumber}...
-              </p>
-              <button
-                onClick={() => handleBooking(apartmentNumber - 1)}
-                disabled={!availability[apartmentNumber - 1]}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md disabled:opacity-50"
-              >
-                {availability[apartmentNumber - 1] ? 'Is still under contruction' : 'Is still under contruction'}
-              </button>
-            </div>
+    <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 min-h-screen flex flex-col items-center">
+      <div className="w-full md:w-3/4">
+      <br/>
+      <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">Availabilty</h1>
+        <br/><br/>
+        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+          {apartments.map(apartment => (
+            <li key={apartment.id} className="py-4 sm:py-5">
+              <div className="flex items-center space-x-4 rtl:space-x-reverse">
+                <div className="flex-shrink-0">
+                  <img className="w-10 h-10 rounded-full" src={apartmentImage} alt={`${apartment.name} image`} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-base font-semibold text-gray-900 truncate dark:text-white">
+                    {apartment.name}
+                  </p>
+                  <p className="text-base text-gray-500 truncate dark:text-gray-400">
+                    {apartment.email}
+                  </p>
+                </div>
+                <span className={`inline-flex items-center ${statusStyles[apartment.statusColor]} text-sm font-medium px-3 py-1 rounded-full`}>
+                  <span className={`w-3 h-3 me-1 ${dotStyles[apartment.statusColor]} rounded-full`}></span>
+                  {apartment.status}
+                </span>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );
