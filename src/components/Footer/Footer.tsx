@@ -28,8 +28,7 @@ const Footer: React.FC = () => (
             intellectual property rights, and that information provided is not professional, 
             with jurisdiction governed by The Republic of Zambia.</i></span>  
             <br/>
-            <span className="block text-sm md:text-base text-gray-500 sm:text-center dark:text-gray-400">© 2024 Rhodesville Villas.</span>
-            <span className="block text-sm md:text-base text-gray-500 sm:text-center dark:text-gray-400">Website managed by © no name company. All rights reserved.</span>          
+            <span className="block text-sm md:text-base text-gray-500 sm:text-center dark:text-gray-400">© 2024 Rhodesville Villas, managed by no name company. All rights reserved. </span>    
         </div>
     </footer>
 );

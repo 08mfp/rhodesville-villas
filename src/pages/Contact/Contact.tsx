@@ -24,8 +24,8 @@ const Contact: React.FC = () => {
             <p className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 mb-8 text-center">Get in touch with us for more information.</p>
             
             <div className="container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {['For bookings:', 'For General Enquiries:', 'For Feedback/Complaints:', 'Website/Online Team:'].map((title, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-5">
+                    {['For bookings:', 'For General Enquiries:'].map((title, index) => (
                         <div key={index} className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow rounded-lg p-5">
                             <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{title}</h2>
                             <address className="relative bg-gray-50 dark:bg-gray-700 dark:border-gray-600 p-4 rounded-lg border border-gray-200 not-italic grid grid-cols-2">
@@ -49,20 +49,6 @@ const Contact: React.FC = () => {
                                             +260 0000000000
                                         </>
                                     )}
-                                    {title === 'For Feedback/Complaints:' && (
-                                        <>
-                                            Feedback Team <br />
-                                            feedback@rhodesville.com <br />
-                                            +260 0000000000
-                                        </>
-                                    )}
-                                    {title === 'Website/Online Team:' && (
-                                        <>
-                                            Web Team <br />
-                                            web@rhodesville.com <br />
-                                            +260 0000000000
-                                        </>
-                                    )}
                                 </div>
                                 <button onClick={() => copyToClipboard(document.getElementById('contact-details')?.textContent || '')} className="absolute end-2 top-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center">
                                     <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
@@ -70,7 +56,7 @@ const Contact: React.FC = () => {
                                     </svg>
                                 </button>
                             </address>
-                            <button className={`bg-${index === 0 ? 'blue' : index === 1 ? 'gray' : index === 2 ? 'red' : 'green'}-500 text-white py-2 px-4 rounded mt-4`} onClick={() => handleShow(`${title} content here...`)}>More Info</button>
+                            <button className={`bg-${index === 0 ? 'blue' : index === 1 ? 'red' : index === 2 ? 'red' : 'green'}-500 text-white py-2 px-4 rounded mt-4`} onClick={() => handleShow(`${title} content here...`)}>More Info</button>
                         </div>
                     ))}
                 </div>
@@ -100,7 +86,7 @@ const Contact: React.FC = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
-                        </div>
+                        </div>x
                         <p className="text-gray-700 dark:text-gray-300">{modalContent}</p>
                         <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded" onClick={handleClose}>Close</button>
                     </div>
