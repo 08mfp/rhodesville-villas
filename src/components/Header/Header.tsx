@@ -10,7 +10,7 @@ const Header: React.FC = () => {
             <div className="max-w-screen-l flex flex-wrap items-center justify-between mx-auto p-2">
                 <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src={logo} className="h-12" alt="Logo" />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Rhodesville Villas</span>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Rhodesville Zambia</span>
                 </Link>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
