@@ -39,7 +39,7 @@ const Header: React.FC = () => {
                             <NavLink to="/about-villas" onClick={() => setIsOpen(false)}>About</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/gallery" onClick={() => setIsOpen(false)}>Availability</NavLink>
+                            <NavLink to="/availability" onClick={() => setIsOpen(false)}>Availability</NavLink>
                         </li>
                         
                         <li>
