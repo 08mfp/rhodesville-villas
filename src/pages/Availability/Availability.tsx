@@ -1,7 +1,7 @@
 import React from 'react';
 import apartmentImage from '../../../src/assets/images/apartment.jpeg';
 
-const Gallery: React.FC = () => {
+const Availability: React.FC = () => {
   // State to manage availability
   const villas = [
     { id: 1, name: 'Villa 1', status: 'Ready for viewing', statusColor: 'green', email: 'Contact us now to arrange a Viewing' },
@@ -94,4 +94,4 @@ const Gallery: React.FC = () => {
   );
 };
 
-export default Gallery;
+export default Availability;
