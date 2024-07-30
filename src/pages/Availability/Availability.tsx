@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import apartmentImage from '../../../src/assets/images/apartment.jpeg';
 
 const Availability: React.FC = () => {
+  const [villas, setVillas] = useState([]);
   // State to manage availability
-  const villas = [
-    { id: 1, name: 'Villa 1', status: 'Ready for viewing', statusColor: 'green', email: 'Contact us now to arrange a Viewing' },
-    { id: 2, name: 'Villa 2', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
-    { id: 3, name: 'Villa 3', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
-    { id: 4, name: 'Villa 4', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
-    { id: 5, name: 'Villa 5', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' }
-  ];
+  // const villas = [
+  //   { id: 1, name: 'Villa 1', status: 'Ready for viewing', statusColor: 'green', email: 'Contact us now to arrange a Viewing' },
+  //   { id: 2, name: 'Villa 2', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
+  //   { id: 3, name: 'Villa 3', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
+  //   { id: 4, name: 'Villa 4', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' },
+  //   { id: 5, name: 'Villa 5', status: 'Under Construction', statusColor: 'red', email: 'Available August 2024' }
+  // ];
 
   const apartments = [
     { id: 1, name: 'Apartment 1', status: 'Booked', statusColor: 'red', email: 'Unavailable' },
@@ -31,6 +32,11 @@ const Availability: React.FC = () => {
     green: 'bg-green-500',
     red: 'bg-red-500'
   };
+
+
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/todos`).then(response => response.json()).then(data => console.log(data));
+  },[]);
 
   return (
     <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 min-h-screen flex flex-col items-center">
