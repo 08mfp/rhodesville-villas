@@ -12,10 +12,12 @@
   
 
   // src/utils/auth.ts
+// src/utils/auth.ts
 export const getAuthHeader = () => {
     const username = process.env.REACT_APP_BASIC_AUTH_USERNAME;
     const password = process.env.REACT_APP_BASIC_AUTH_PASSWORD;
-    const token = Buffer.from(`${username}:${password}`).toString('base64');
+    const token = btoa(`${username}:${password}`);
     return `Basic ${token}`;
   };
+  
   

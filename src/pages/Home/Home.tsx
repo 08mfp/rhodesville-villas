@@ -94,7 +94,7 @@ const Home: React.FC = () => {
               </div>
               <div className="p-4 md:p-5 space-y-4">
                 <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  Website is down for maintenance.
+                  This website is still under development, some features may not work as expected. We apologize for any inconvenience caused.
                 </p>
               </div>
               <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
