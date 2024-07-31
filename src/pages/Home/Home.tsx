@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { getAuthHeader } from '../../utils/auth';
 
 type ImageGallery = {
   src: string;
@@ -21,7 +22,11 @@ const Gallery: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/home');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/home', {
+          headers: {
+            'Authorization': getAuthHeader()
+          }
+        });
         const data: HomeData = response.data;
         setImageGallery(data.imageGallery);
         setCategories(data.categories);
@@ -39,8 +44,8 @@ const Gallery: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const filteredImages = selectedCategory === 'All categories' 
-    ? imageGallery 
+  const filteredImages = selectedCategory === 'All categories'
+    ? imageGallery
     : imageGallery.filter(image => image.category === selectedCategory);
 
   return (
@@ -48,9 +53,9 @@ const Gallery: React.FC = () => {
       <h1 className="text-4xl md:text-5xl font-bold text-white dark:text-white mb-8 text-center">Gallery</h1>
       <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
         {categories.map((category, index) => (
-          <button 
-            key={index} 
-            type="button" 
+          <button
+            key={index}
+            type="button"
             onClick={() => setSelectedCategory(category)}
             className={`text-${category === selectedCategory ? 'white' : 'gray-900'} hover:text-red-500 border ${category === selectedCategory ? 'border-blue-600 bg-blue-700' : 'border-gray-300 bg-gray-100 dark:border-gray-700 dark:bg-gray-800'} focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-2 text-center me-3 mb-3 dark:text-${category === selectedCategory ? 'white' : 'gray-300'} dark:focus:ring-gray-800 text-sm md:text-base`}>
             {category}

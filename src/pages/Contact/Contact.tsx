@@ -3,6 +3,7 @@ import axios from 'axios';
 import whatsappIcon from '../../assets/icons/whatsapp.webp';
 import callIcon from '../../assets/icons/call.png';
 import mailIcon from '../../assets/icons/mail.webp';
+import { getAuthHeader } from '../../utils/auth';
 
 type ContactInfo = {
     title: string;
@@ -31,7 +32,11 @@ const Contact: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://rhodesville-backend.vercel.app/api/contact');
+                const response = await axios.get('https://rhodesville-backend.vercel.app/api/contact', {
+                    headers: {
+                        'Authorization': getAuthHeader()
+                    }
+                });
                 setContactInfo(response.data);
                 setLoading(false);
             } catch (error) {
