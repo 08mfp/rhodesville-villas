@@ -10,7 +10,7 @@ const Availability: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/availability');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/availability');
         setVillas(response.data.villas);
         setApartments(response.data.apartments);
         setLoading(false);

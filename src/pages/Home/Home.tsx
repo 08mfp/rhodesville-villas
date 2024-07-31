@@ -21,7 +21,7 @@ const Gallery: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/home');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/home');
         const data: HomeData = response.data;
         setImageGallery(data.imageGallery);
         setCategories(data.categories);

@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/api/contact');
+                const response = await axios.get('https://rhodesville-backend.vercel.app/api/contact');
                 setContactInfo(response.data);
                 setLoading(false);
             } catch (error) {

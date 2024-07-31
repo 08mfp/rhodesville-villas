@@ -21,7 +21,7 @@ const Neighborhood: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/locations');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/locations');
         const data: Location[] = response.data;
 
         setLocations(data);
