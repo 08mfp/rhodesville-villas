@@ -11,6 +11,7 @@ const Amenities: React.FC = () => {
   const [openSections, setOpenSections] = useState<number[]>([]);
   const [sections, setSections] = useState<Section[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const toggleSection = (section: number) => {
     if (openSections.includes(section)) {
@@ -24,33 +25,87 @@ const Amenities: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const start = Date.now();
+      const loadingTimeout = setTimeout(() => setError(true), 15000);
+
       try {
         const response = await axios.get('https://rhodesville-backend.vercel.app/api/amenities', {
           headers: {
             'Authorization': getAuthHeader()
           }
         });
-        setSections(response.data);
-        setLoading(false);
+
+        clearTimeout(loadingTimeout);
+
+        const duration = Date.now() - start;
+        const remainingTime = Math.max(3000 - duration, 0);
+
+        setTimeout(() => {
+          setSections(response.data);
+          setLoading(false);
+        }, remainingTime);
       } catch (error) {
         console.error('Error fetching amenities data:', error);
         setLoading(false);
+        setError(true);
+        clearTimeout(loadingTimeout);
       }
     };
 
     fetchData();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const renderSkeleton = () => {
+    const skeletons = Array(4).fill(0).map((_, index) => (
+      <div key={index} className="bg-gray-50 dark:bg-gray-800 p-4 mb-4 border border-gray-200 rounded-lg shadow-md animate-pulse">
+        <div className="h-6 bg-gray-200 rounded-full dark:bg-gray-700 w-3/4 mb-4"></div>
+        <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-700 mb-2"></div>
+        <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-700 mb-2"></div>
+        <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+      </div>
+    ));
+
+    return (
+      <div className="flex flex-col space-y-4">
+        {skeletons}
+      </div>
+    );
+  };
+
+  const renderErrorModal = () => (
+    <div id="alert-additional-content-2" className="p-4 mb-4 text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+      <div className="flex items-center">
+        <svg className="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+        </svg>
+        <span className="sr-only">Info</span>
+        <h3 className="text-lg font-medium">Failed to get data</h3>
+      </div>
+      <div className="mt-2 mb-4 text-sm">
+        There seems to be an error with our server, please try again after a few minutes. If the problem persists, please contact us directly.
+      </div>
+      <div className="flex">
+        <button type="button" className="text-white bg-red-800 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+          <svg className="me-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+            <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
+          </svg>
+          +260 970000000
+        </button>
+        <button type="button" className="text-red-800 bg-transparent border border-red-800 hover:bg-red-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-red-600 dark:border-red-600 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800" data-dismiss-target="#alert-additional-content-2" aria-label="Close">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 min-h-screen flex flex-col">
-      <br/>
-      <div>
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">Amenities</h1>
-        <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 text-center">Tap on any section to read more:</p>
+      <br />
+      <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 text-center">Amenities</h1>
+      <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 text-center">Tap on any section to read more:</p>
+      {loading && !error && renderSkeleton()}
+      {error && renderErrorModal()}
+      {!loading && !error && (
         <div id="accordion-open" data-accordion="open">
           {sections.map((section, index) => (
             <div key={index}>
@@ -98,7 +153,7 @@ const Amenities: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      )}
 
       <div className="w-full md:w-3/4 p-4 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto mt-4">
         <h5 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Still have questions?</h5>
