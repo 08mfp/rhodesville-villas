@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './Amenities.css';
+
+
+type Section = {
+  title: string;
+  content: string;
+};
 
 const Amenities: React.FC = () => {
-  const [openSections, setOpenSections] = useState<number[]>([]); // By default, the first three sections are open
+  const [openSections, setOpenSections] = useState<number[]>([]);
+  const [sections, setSections] = useState<Section[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const toggleSection = (section: number) => {
     if (openSections.includes(section)) {
@@ -15,52 +23,24 @@ const Amenities: React.FC = () => {
 
   const isSectionOpen = (section: number) => openSections.includes(section);
 
-  const sections = [
-    {
-      title: 'DSTV',
-      content: 'Our villas come with DSTV so you can enjoy your favorite shows and movies.',
-    },
-    {
-      title: 'High Speed Internet',
-      content: 'Each villa comes equipped with high speed internet (upto 150MBs).',
-    },
-    {
-      title: 'Inverter and Solar Power',
-      content: 'Our villas come with inverter and solar power so you never have to worry about loadshedding.',
-    },
-    {
-      title: 'Private Garden',
-      content: 'Each villa includes a private back garden.',
-    },
-    {
-      title: 'Swimming Pool',
-      content: 'All villas come with a private swimming pool for you to relax and enjoy the sun.',
-    },
-    {
-      title: 'Free Parking',
-      content: 'The property has a large parking area for all of our guests.',
-    },
-    {
-      title: '24/7 Security',
-      content: 'Our 24/7 security ensures that you and your loved ones are safe and secure at all times.',
-    },
-    {
-      title: 'Garbage Collection',
-      content: 'We offer weekly garbage collection for all of our guests.',
-    },
-    {
-      title: 'Appliances',
-      content: 'Each villa comes with a fully equipped with all the necessary kitchen appliances and washing machines.',
-    },
-    {
-      title: 'Air Conditioning',
-      content: 'All of our villas come with air conditioning to keep you cool during the hot summer months.',
-    },
-    {
-      title: 'Cleaning Services',
-      content: 'We weekly house cleaning services (at an additional cost).',
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/amenities');
+        setSections(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching amenities data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 min-h-screen flex flex-col">
@@ -151,8 +131,6 @@ const Amenities: React.FC = () => {
         <a href="#" className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">19 reviews</a>
       </div>
     </div>
-
-
   );
 };
 
