@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getAuthHeader } from '../../utils/auth';
 
@@ -80,7 +79,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="home">
-      {/* Modal */}
       {showModal && (
         <div id="default-modal" className="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto">
           <div className="relative p-4 w-full max-w-2xl max-h-full mt-24 md:mt-32">
@@ -96,7 +94,7 @@ const Home: React.FC = () => {
               </div>
               <div className="p-4 md:p-5 space-y-4">
                 <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  This website is still under development, some features may not work as expected. We apologize for any inconvenience caused.
+                  Website is down for maintenance.
                 </p>
               </div>
               <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
@@ -107,17 +105,10 @@ const Home: React.FC = () => {
         </div>
       )}
 
-      {/* Jumbotron Section */}
-      <section
-        className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat"
-      >
-        <div
-          className="absolute inset-0 bg-gray-900/75 sm:bg-gray-900/75 sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
-        ></div>
+      <section className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat">
+        <div className="absolute inset-0 bg-gray-900/75 sm:bg-gray-900/75 sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
 
-        <div
-          className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:px-12 lg:flex lg:h-screen lg:items-center lg:text-left"
-        >
+        <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:px-12 lg:flex lg:h-screen lg:items-center lg:text-left">
           <div className="max-w-xl text-center lg:text-left lg:max-w-full lg:pr-16">
             <h1 className="text-4xl font-extrabold text-white sm:text-6xl lg:text-7xl">
               Step into a world of luxury and comfort at
@@ -147,7 +138,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Gallery Component */}
       <Gallery />
     </div>
   );
