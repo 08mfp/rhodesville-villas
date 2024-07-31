@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { getAuthHeader } from '../../utils/auth';
 
 type AboutSection = {
   title: string;
@@ -14,7 +15,11 @@ const AboutVillas: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/about');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/about', {
+          headers: {
+            'Authorization': getAuthHeader()
+          }
+        });
         setSections(response.data);
         setLoading(false);
       } catch (error) {

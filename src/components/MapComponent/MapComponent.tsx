@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import locations from '../../data/locations.json'; // Import the JSON file
+import axios from 'axios';
+import { getAuthHeader } from '../../utils/auth';
 
-// Set your Mapbox access token here
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN || '';
 
 interface Location {
@@ -19,12 +19,33 @@ interface Location {
 const MapComponent: React.FC = () => {
     const mapContainerRef = useRef<HTMLDivElement | null>(null);
     const mapRef = useRef<mapboxgl.Map | null>(null);
+    const [locations, setLocations] = useState<Location[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            try {
+                const response = await axios.get('https://rhodesville-backend.vercel.app/api/locations', {
+                    headers: {
+                        'Authorization': getAuthHeader()
+                    }
+                });
+                setLocations(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching locations data:', error);
+                setLoading(false);
+            }
+        };
+
+        fetchLocations();
+    }, []);
 
     useEffect(() => {
         const isMobile = window.innerWidth < 768;
         const zoomLevel = isMobile ? 13 : 14;
 
-        if (mapContainerRef.current) {
+        if (mapContainerRef.current && !mapRef.current) {
             mapRef.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
                 style: 'mapbox://styles/mapbox/streets-v12',
@@ -52,7 +73,7 @@ const MapComponent: React.FC = () => {
         return () => {
             if (mapRef.current) mapRef.current.remove();
         };
-    }, []);
+    }, [locations]);
 
     const createMarkerElement = (iconUrl: string) => {
         const img = document.createElement('img');
@@ -61,6 +82,10 @@ const MapComponent: React.FC = () => {
         img.style.height = '30px';
         return img;
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="border-4 border-gray-600 dark:border-gray-300 rounded-lg overflow-hidden h-72 md:h-96" ref={mapContainerRef} /> // Adjusted height for mobile

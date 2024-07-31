@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-
+import { getAuthHeader } from '../../utils/auth';
 
 type Section = {
   title: string;
@@ -26,7 +25,11 @@ const Amenities: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/amenities');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/amenities', {
+          headers: {
+            'Authorization': getAuthHeader()
+          }
+        });
         setSections(response.data);
         setLoading(false);
       } catch (error) {

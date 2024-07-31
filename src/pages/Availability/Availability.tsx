@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import apartmentImage from '../../../src/assets/images/apartment.jpeg';
+import { getAuthHeader } from '../../utils/auth';
 
 const Availability: React.FC = () => {
   const [villas, setVillas] = useState([]);
@@ -10,7 +11,11 @@ const Availability: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/availability');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/availability', {
+          headers: {
+            'Authorization': getAuthHeader()
+          }
+        });
         setVillas(response.data.villas);
         setApartments(response.data.apartments);
         setLoading(false);

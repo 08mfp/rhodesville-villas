@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MapComponent from '../../components/MapComponent/MapComponent';
+import { getAuthHeader } from '../../utils/auth';
 
 type Location = {
   lat: number;
@@ -21,7 +22,11 @@ const Neighborhood: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/locations');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/locations', {
+          headers: {
+            'Authorization': getAuthHeader()
+          }
+        });
         const data: Location[] = response.data;
 
         setLocations(data);
