@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import whatsappIcon from '../../assets/icons/whatsapp.webp';
 import callIcon from '../../assets/icons/call.png';
 import mailIcon from '../../assets/icons/mail.webp';
 
+type ContactInfo = {
+    title: string;
+    name: string;
+    email: string;
+    phone: string;
+};
+
 const Contact: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState('');
+    const [contactInfo, setContactInfo] = useState<ContactInfo[]>([]);
+    const [loading, setLoading] = useState(true);
 
     const handleClose = () => setShowModal(false);
     const handleShow = (content: string) => {
@@ -18,6 +28,25 @@ const Contact: React.FC = () => {
         alert('Contact details copied to clipboard!');
     };
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/api/contact');
+                setContactInfo(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching contact data:', error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8">
             <br/>
@@ -26,9 +55,9 @@ const Contact: React.FC = () => {
             
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-1 gap-5">
-                    {['For bookings:', 'For General Enquiries:'].map((title, index) => (
+                    {contactInfo.map((info, index) => (
                         <div key={index} className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow rounded-lg p-5">
-                            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{title}</h2>
+                            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{info.title}</h2>
                             <address className="relative bg-gray-50 dark:bg-gray-700 dark:border-gray-600 p-4 rounded-lg border border-gray-200 not-italic grid grid-cols-2">
                                 <div className="space-y-2 text-gray-500 dark:text-gray-400 leading-loose hidden sm:block">
                                     Name <br />
@@ -36,28 +65,17 @@ const Contact: React.FC = () => {
                                     Phone Number
                                 </div>
                                 <div id="contact-details" className="space-y-2 text-gray-900 dark:text-white font-medium leading-loose">
-                                    {title === 'For bookings:' && (
-                                        <>
-                                            Booking Team <br />
-                                            bookings@rhodesville.com <br />
-                                            +260 0000000000
-                                        </>
-                                    )}
-                                    {title === 'For General Enquiries:' && (
-                                        <>
-                                            Enquiries Team <br />
-                                            enquiries@rhodesville.com <br />
-                                            +260 0000000000
-                                        </>
-                                    )}
+                                    {info.name} <br />
+                                    {info.email} <br />
+                                    {info.phone}
                                 </div>
-                                <button onClick={() => copyToClipboard(document.getElementById('contact-details')?.textContent || '')} className="absolute end-2 top-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center">
+                                <button onClick={() => copyToClipboard(`${info.name}\n${info.email}\n${info.phone}`)} className="absolute end-2 top-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center">
                                     <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                                         <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
                                     </svg>
                                 </button>
                             </address>
-                            <button className={`bg-${index === 0 ? 'blue' : index === 1 ? 'red' : index === 2 ? 'red' : 'green'}-500 text-white py-2 px-4 rounded mt-4`} onClick={() => handleShow(`${title} `)}>More Info</button>
+                            <button className={`bg-${index === 0 ? 'blue' : index === 1 ? 'red' : index === 2 ? 'red' : 'green'}-500 text-white py-2 px-4 rounded mt-4`} onClick={() => handleShow(`${info.title}`)}>More Info</button>
                         </div>
                     ))}
                 </div>
