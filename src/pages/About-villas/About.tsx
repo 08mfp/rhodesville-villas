@@ -14,7 +14,7 @@ const AboutVillas: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/about');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/about');
         setSections(response.data);
         setLoading(false);
       } catch (error) {

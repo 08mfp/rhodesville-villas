@@ -26,7 +26,7 @@ const Amenities: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/amenities');
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/amenities');
         setSections(response.data);
         setLoading(false);
       } catch (error) {
