@@ -38,7 +38,7 @@ const Amenities: React.FC = () => {
         clearTimeout(loadingTimeout);
 
         const duration = Date.now() - start;
-        const remainingTime = Math.max(3000 - duration, 0);
+        const remainingTime = Math.max(2000 - duration, 0);
 
         setTimeout(() => {
           setSections(response.data);
