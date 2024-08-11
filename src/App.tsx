@@ -9,6 +9,7 @@ import Amenities from './pages/Amenities/Amenities';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const App: React.FC = () => (
     <Router>
@@ -23,6 +24,10 @@ const App: React.FC = () => (
         </Routes>
         <Footer />
         <Analytics />
+        <div>
+            {/* ... */}
+            <SpeedInsights />
+        </div>
     </Router>
 );
 
