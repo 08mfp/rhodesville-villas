@@ -19,9 +19,29 @@ This project is a modern, responsive web application built with React.js. It web
 - **Loading Animations**: The front end displays loading animations while fetching data from the backend, ensuring a smooth user experience. Once the data is loaded, the relevant content is populated into the page.
 
 ## Sample Images
+### Home Page
+<img src="https://github.com/user-attachments/assets/de74fe90-68e9-457e-891e-87cc0d26038a" alt="Home Page" title="Rhodesville Villas Home Page" width="800">
 
+### Gallery Page
+<img src="https://github.com/user-attachments/assets/aba2eaa8-3678-4b09-be4f-9d946a533b02" alt="Gallery Page" title="Gallery with Filter Options" width="800">
 
+### About Page
+<img src="https://github.com/user-attachments/assets/67f4a10a-9714-4657-986f-14fcddfd831a" alt="About Page" title="About Page with Cards" width="800">
 
+### Availability Page
+<img src="https://github.com/user-attachments/assets/b9ba55c8-eb68-41af-847d-9c36ccd6f844" alt="Availability Page" title="Real-time Availability Checker" width="800">
+
+### Amenities Page
+<img src="https://github.com/user-attachments/assets/6f75a624-e726-43b9-8210-a66dc2b03370" alt="Amenities Page" title="List of Amenities in accordion style" width="800">
+
+### Neighborhood Map
+<img src="https://github.com/user-attachments/assets/1c64b18b-2628-42f8-b383-fbac99f03aa4" alt="Neighborhood Map" title="Interactive 3D Map" width="800">
+
+### Nearby Attractions Page
+<img src="https://github.com/user-attachments/assets/b3ca6711-0062-4396-a966-320918b6c5a6" alt="Attractions Page" title="Displays nearby attractions" width="800">
+
+### Contact Page
+<img  src="https://github.com/user-attachments/assets/092d5615-1ae7-4811-8246-402cc5c80907" alt="Contact Page" title="Contact Page with clipboard functionality" width="800">
 
 ## Project Structure
 
