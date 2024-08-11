@@ -1,6 +1,6 @@
-# Rhodesville Villas Website
+# Real Estate Listings Website
 
-This project is a modern, responsive web application built with React.js. It website presents a clean and modern interface, offering features like light mode and dark mode for different user preferences. It includes interactive elements, real-time data fetching, and secure backend communication.
+This project is a modern, responsive web application built with React.js. It website presents a clean and modern interface, offering features like light mode and dark mode for different user preferences. It includes interactive elements, real-time data fetching, and secure backend communication. (There is a separate Back-End server respository, however i have kept this repository private. If you would like to view this repository, you can email me at contact@mohfarid.com.)
 
 ## Features
 
