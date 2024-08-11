@@ -18,6 +18,11 @@ This project is a modern, responsive web application built with React.js. It web
 
 - **Loading Animations**: The front end displays loading animations while fetching data from the backend, ensuring a smooth user experience. Once the data is loaded, the relevant content is populated into the page.
 
+## Sample Images
+
+
+
+
 ## Project Structure
 
 The project is organized as follows:
@@ -25,36 +30,36 @@ The project is organized as follows:
 - **src/assets**: Contains static assets like images and icons.
 - **src/components**: Reusable UI components such as the Header and Footer.
   - **Footer**: The footer section of the website.
-    - `Footer.tsx`: The main footer component.
-    - `styles.tsx`: Styling for the footer component.
+    - `Footer.tsx`
+    - `styles.tsx`
   - **Header**: The header section of the website.
-    - `Header.tsx`: The main header component.
-    - `styles.tsx`: Styling for the header component.
+    - `Header.tsx`
+    - `styles.tsx`
 
 - **src/pages**: Pages of the website, including the About, Amenities, Availability, Contact, Home, and Neighborhood sections.
   - **About-villas**: Information about the villas.
-    - `About.tsx`: The About page component.
-    - `styles.tsx`: Styling for the About page.
+    - `About.tsx`
+    - `styles.tsx`
   - **Amenities**: List of amenities offered by the villas.
-    - `Amenities.tsx`: The Amenities page component.
-    - `styles.tsx`: Styling for the Amenities page.
+    - `Amenities.tsx`
+    - `styles.tsx`
   - **Availability**: Real-time apartment availability checker.
-    - `Availability.tsx`: The Availability page component.
-    - `styles.tsx`: Styling for the Availability page.
+    - `Availability.tsx`
+    - `styles.tsx`
   - **Contact**: Contact information and form.
-    - `Contact.tsx`: The Contact page component.
-    - `styles.tsx`: Styling for the Contact page.
+    - `Contact.tsx`
+    - `styles.tsx`
   - **Home**: The homepage of the website.
-    - `Gallery.tsx`: Image gallery component with filter functionality.
-    - `Home.tsx`: The main Home page component.
-    - `styles.tsx`: Styling for the Home page.
+    - `Gallery.tsx`
+    - `Home.tsx`
+    - `styles.tsx`
   - **Neighborhood**: Information about the surrounding neighborhood.
-    - `MapComponent`: Interactive 3D map using the Mapbox API.
+    - `MapComponent`
       - `LazyMapComponent.tsx`: Lazy-loaded map component for performance optimization.
       - `MapComponent.tsx`: The main Map component.
       - `MapComponent.css`: CSS for the Map component.
-    - `Neighborhood.tsx`: The Neighborhood page component.
-    - `styles.tsx`: Styling for the Neighborhood page.
+    - `Neighborhood.tsx`
+    - `styles.tsx`
 
 - **src/utils**: Utility functions and modules used throughout the project.
   - `auth.ts`: Handles authentication and authorization logic.
