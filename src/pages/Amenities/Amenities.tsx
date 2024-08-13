@@ -57,17 +57,15 @@ const Amenities: React.FC = () => {
   }, []);
 
   const renderSkeleton = () => {
-    const skeletons = Array(4).fill(0).map((_, index) => (
-      <div key={index} className={styles.skeletonItem}>
-        <div className={styles.skeletonLineLarge}></div>
-        <div className={styles.skeletonLineMedium}></div>
-        <div className={styles.skeletonLineMedium}></div>
-        <div className={styles.skeletonLineSmall}></div>
+    const skeletons = Array(8).fill(0).map((_, index) => (
+      <div key={index} className={styles.skeletonAccordionItem}>
+        <div className={styles.skeletonAccordionTitle}></div>
+        <div className={styles.skeletonAccordionContent}></div>
       </div>
     ));
 
     return (
-      <div className={styles.skeletonContainer}>
+      <div className={styles.skeletonAccordionContainer}>
         {skeletons}
       </div>
     );
