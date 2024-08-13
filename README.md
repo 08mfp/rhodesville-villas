@@ -1,6 +1,27 @@
 # Real Estate Listings Website
 
-This project is a modern, responsive web application built with React.js. It website presents a clean and modern interface, offering features like light mode and dark mode for different user preferences. It includes interactive elements, real-time data fetching, and secure backend communication. (There is a separate Back-End server respository, however i have kept this repository private. If you would like to view this repository, you can email me at contact@mohfarid.com.)
+This project is a modern, responsive web application built with **React.js**. The website presents a clean and modern interface, offering features like light mode and dark mode for different user preferences. It includes interactive elements, real-time data fetching, and secure backend communication. *(Note: There is a separate backend server repository, which I have kept private. If you would like to view this repository, please email me at contact@mohfarid.com.)*
+
+## Table of Contents
+
+- [Features](#features)
+- [Sample Images](#sample-images)
+  - [Home Page](#home-page)
+  - [Gallery Page](#gallery-page)
+  - [About Page](#about-page)
+  - [Availability Page](#availability-page)
+  - [Amenities Page](#amenities-page)
+  - [Neighborhood Map](#neighborhood-map)
+  - [Nearby Attractions Page](#nearby-attractions-page)
+  - [Contact Page](#contact-page)
+- [Project Structure](#project-structure)
+- [Steps to Run the Code/Website](#steps-to-run-the-codewebsite)
+  - [1. Install Dependencies](#1-install-dependencies)
+  - [2. Start the Development Server](#2-start-the-development-server)
+  - [3. Run Tests](#3-run-tests)
+  - [4. Build for Production](#4-build-for-production)
+  - [5. Eject the Configuration (Optional)](#5-eject-the-configuration-optional)
+- [Learn More](#learn-more)
 
 ## Features
 
@@ -19,6 +40,7 @@ This project is a modern, responsive web application built with React.js. It web
 - **Loading Animations**: The front end displays loading animations while fetching data from the backend, ensuring a smooth user experience. Once the data is loaded, the relevant content is populated into the page.
 
 ## Sample Images
+
 ### Home Page
 <img src="https://github.com/user-attachments/assets/de74fe90-68e9-457e-891e-87cc0d26038a" alt="Home Page" title="Rhodesville Villas Home Page" width="800">
 
@@ -41,7 +63,7 @@ This project is a modern, responsive web application built with React.js. It web
 <img src="https://github.com/user-attachments/assets/b3ca6711-0062-4396-a966-320918b6c5a6" alt="Attractions Page" title="Displays nearby attractions" width="800">
 
 ### Contact Page
-<img  src="https://github.com/user-attachments/assets/092d5615-1ae7-4811-8246-402cc5c80907" alt="Contact Page" title="Contact Page with clipboard functionality" width="800">
+<img src="https://github.com/user-attachments/assets/092d5615-1ae7-4811-8246-402cc5c80907" alt="Contact Page" title="Contact Page with clipboard functionality" width="800">
 
 ## Project Structure
 
@@ -87,18 +109,11 @@ The project is organized as follows:
 - **src/App.tsx**: Main application file.
 - **src/index.tsx**: Entry point of the application.
 
-
-
-
 ## Steps to Run the Code/Website
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), a tool that provides a modern setup for building React applications with zero configuration.
 
 Follow these steps to get the project up and running:
-
-### BEFORE: 
-Navigate to the root folder in this repository
-
 
 ### 1. Install Dependencies
 
@@ -132,8 +147,7 @@ npm test
 
 - This will launch the test runner, which watches for file changes and re-runs tests automatically.
 - For more detailed information on running tests, refer to the [Create React App testing documentation](https://facebook.github.io/create-react-app/docs/running-tests).
-- NOTE: i have not written any custom tests for this project yet.
-
+- NOTE: I have not written any custom tests for this project yet.
 
 ### 4. Build for Production
 
@@ -163,16 +177,13 @@ npm run eject
 - You can then modify the configuration files as needed.
 - All existing commands (`npm start`, `npm test`, `npm run build`) will continue to work, but they will use the copied configuration.
 
-**Note:** The curated feature set provided by Create React App is suitable for most applications. Only eject if you need to customize the build process significantly.
-
-### Learn More
+## Learn More
 
 For further reading and advanced topics:
 
 - [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started) - Comprehensive guide on using Create React App.
 - [React Documentation](https://reactjs.org/) - Official React documentation for learning more about React and its ecosystem.
 
+---
 
-```
-Built by Mohamed Farid Patel
-```
+**Built by Mohamed Farid Patel**
