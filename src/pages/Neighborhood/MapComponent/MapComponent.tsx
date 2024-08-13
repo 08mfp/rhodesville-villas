@@ -21,11 +21,13 @@ const MapComponent: React.FC = () => {
     const mapRef = useRef<mapboxgl.Map | null>(null);
     const [locations, setLocations] = useState<Location[]>([]);
     const [loading, setLoading] = useState(true);
+    const urlweb = process.env.REACT_APP_API_BASE_URL || 'https://default-url.com';
+    const fullurl = `${urlweb}/locations`;
 
     useEffect(() => {
         const fetchLocations = async () => {
             try {
-                const response = await axios.get('https://rhodesville-backend.vercel.app/api/locations', {
+                const response = await axios.get(fullurl, {
                     headers: {
                         'Authorization': getAuthHeader()
                     }

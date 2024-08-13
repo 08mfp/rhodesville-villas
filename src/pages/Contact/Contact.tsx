@@ -32,9 +32,11 @@ useEffect(() => {
 const fetchData = async () => {
     const start = Date.now();
     const loadingTimeout = setTimeout(() => setError(true), 15000);
+    const urlweb = process.env.REACT_APP_API_BASE_URL || 'https://default-url.com';
+    const fullurl = `${urlweb}/contact`;
 
     try {
-    const response = await axios.get('https://rhodesville-backend.vercel.app/api/contact', {
+    const response = await axios.get(fullurl, {
         headers: {
         'Authorization': getAuthHeader()
         }
@@ -61,7 +63,7 @@ fetchData();
 }, []);
 
 const renderSkeleton = () => {
-const skeletons = Array(3).fill(0).map((_, index) => (
+const skeletons = Array(2).fill(0).map((_, index) => (
     <div key={index} className={styles.skeletonItem}>
     <div className={styles.skeletonLineLarge}></div>
     <div className={styles.skeletonLineMedium}></div>

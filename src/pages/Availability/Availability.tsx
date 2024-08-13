@@ -26,9 +26,11 @@ const Availability: React.FC = () => {
     const fetchData = async () => {
       const start = Date.now();
       const loadingTimeout = setTimeout(() => setError(true), 15000);
+      const urlweb = process.env.REACT_APP_API_BASE_URL || 'https://default-url.com';
+      const fullurl = `${urlweb}/availability`;
 
       try {
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/availability', {
+        const response = await axios.get(fullurl, {
           headers: {
             'Authorization': getAuthHeader()
           }

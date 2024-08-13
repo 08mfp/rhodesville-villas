@@ -18,11 +18,13 @@ const [selectedCategory, setSelectedCategory] = useState('All categories');
 const [imageGallery, setImageGallery] = useState<ImageGallery[]>([]);
 const [categories, setCategories] = useState<string[]>([]);
 const [loading, setLoading] = useState(true);
+const urlweb = process.env.REACT_APP_API_BASE_URL || 'https://default-url.com';
+const fullurl = `${urlweb}/home`;
 
 useEffect(() => {
 const fetchData = async () => {
     try {
-    const response = await axios.get('https://rhodesville-backend.vercel.app/api/home', {
+    const response = await axios.get(fullurl, {
         headers: {
         'Authorization': getAuthHeader(),
         },
