@@ -115,8 +115,8 @@ const Neighborhood: React.FC = () => {
   return (
     <div className={styles.container}>
       <br />
-      <h1 className={styles.title}>Location</h1>
-      <p className={styles.subtitle}>Explore our neighbourhood using the map below:</p>
+      <h1 className={styles.title}>Our Neighbourhood</h1>
+      <p className={styles.subtitle}>Explore our community using the map below:</p>
       <div className={styles.mapContainer}>
         <MapComponent />
       </div>

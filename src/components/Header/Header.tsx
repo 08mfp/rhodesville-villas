@@ -37,7 +37,10 @@ const Header: React.FC = () => {
                             <NavLink to="/" onClick={() => setIsOpen(false)}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/about-villas" onClick={() => setIsOpen(false)}>About</NavLink>
+                            <NavLink to="/about-villas" onClick={() => setIsOpen(false)}>Villas</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about-apartments" onClick={() => setIsOpen(false)}>Apartments</NavLink>
                         </li>
                         <li>
                             <NavLink to="/availability" onClick={() => setIsOpen(false)}>Availability</NavLink>
@@ -46,7 +49,7 @@ const Header: React.FC = () => {
                             <NavLink to="/amenities" onClick={() => setIsOpen(false)}>Amenities</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/neighborhood" onClick={() => setIsOpen(false)}>Location</NavLink>
+                            <NavLink to="/neighborhood" onClick={() => setIsOpen(false)}>Neighborhood</NavLink>
                         </li>
                         <li className="md:mr-auto">
                             <NavLink to="/contact" onClick={() => setIsOpen(false)}>Contact</NavLink>

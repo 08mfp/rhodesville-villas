@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import About from './pages/About-villas/About';
+import AboutApt from './pages/About-apt/About';
 import Availability from './pages/Availability/Availability';
 import Contact from './pages/Contact/Contact';
 import Neighborhood from './pages/Neighborhood/Neighborhood';
@@ -17,6 +18,7 @@ const App: React.FC = () => (
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about-villas" element={<About/>} />
+            <Route path="/about-apartments" element={<AboutApt/>} />
             <Route path="/availability" element={<Availability/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/neighborhood" element={<Neighborhood />} />

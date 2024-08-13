@@ -10,7 +10,7 @@ type AboutSection = {
   content: string;
 };
 
-const AboutVillas: React.FC = () => {
+const AboutApt: React.FC = () => {
   const [sections, setSections] = useState<AboutSection[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -21,7 +21,7 @@ const AboutVillas: React.FC = () => {
       const loadingTimeout = setTimeout(() => setError(true), 15000);
 
       try {
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/about', {
+        const response = await axios.get('https://rhodesville-backend.vercel.app/api/aboutapt', {
           headers: {
             Authorization: getAuthHeader(),
           },
@@ -121,7 +121,7 @@ const AboutVillas: React.FC = () => {
   return (
     <div className={styles.container}>
       <br />
-      <h1 className={styles.title}>Rhodesville Villas</h1>
+      <h1 className={styles.title}>Rhodesville Apartments</h1>
       {loading && !error && renderSkeleton()}
       {error && renderErrorModal()}
       {!loading && !error && (
@@ -141,9 +141,11 @@ const AboutVillas: React.FC = () => {
           </div>
         </div>
       )}
+
       <Gallery />
     </div>
+    
   );
 };
 
-export default AboutVillas;
+export default AboutApt;
