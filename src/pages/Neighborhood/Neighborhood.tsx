@@ -20,11 +20,14 @@ const Neighborhood: React.FC = () => {
   const [visibleCounts, setVisibleCounts] = useState<{ [key: string]: number }>({});
   const [loading, setLoading] = useState(true);
 
+  const urlweb = process.env.REACT_APP_API_BASE_URL || 'https://default-url.com';
+  const fullurl = `${urlweb}/locations`;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const start = Date.now();
-        const response = await axios.get('https://rhodesville-backend.vercel.app/api/locations', {
+        const response = await axios.get(fullurl, {
           headers: {
             Authorization: getAuthHeader(),
           },
@@ -52,7 +55,7 @@ const Neighborhood: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [fullurl]);
 
   const handleSeeMore = (category: string) => {
     setVisibleCounts({
@@ -69,7 +72,7 @@ const Neighborhood: React.FC = () => {
   };
 
   const renderSkeleton = () => {
-    const skeletons = Array(6).fill(0).map((_, index) => (
+    const skeletons = Array(8).fill(0).map((_, index) => (
       <div key={index} className={styles.skeletonCard}>
         <div className={styles.skeletonCardContentContainer}>
           <div className={styles.skeletonCardImageContainer}>
