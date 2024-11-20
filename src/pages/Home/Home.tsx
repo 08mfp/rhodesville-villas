@@ -80,7 +80,7 @@ const Home: React.FC = () => {
                 href="#"
                 className={styles.heroPrimaryButton}
               >
-                Opening August 2024
+                Open Now
               </a>
 
               <a
