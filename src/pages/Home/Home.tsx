@@ -8,7 +8,7 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.homeContainer}>
-      {showModal && (
+{/*       {showModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalBody}>
@@ -55,7 +55,7 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       <section className={styles.heroSection}>
         <div className={styles.heroOverlay}></div>
