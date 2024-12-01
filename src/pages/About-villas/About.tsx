@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getAuthHeader } from '../../utils/auth';
 import { styles } from './styles';
-import Gallery from './Gallery';
+// import Gallery from './Gallery';
 
 type AboutSection = {
   title: string;
@@ -143,7 +143,7 @@ const AboutVillas: React.FC = () => {
           </div>
         </div>
       )}
-      <Gallery />
+{/*       <Gallery /> */}
     </div>
   );
 };
