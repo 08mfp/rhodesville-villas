@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import apartmentImage from '../../../src/assets/images/apartment.jpeg';
+import villaImage from '../../../src/assets/images/villa.jpg';
 import { getAuthHeader } from '../../utils/auth';
 import { styles } from './styles';
 
@@ -131,7 +132,7 @@ const Availability: React.FC = () => {
                 <div key={villa.id} className={styles.card}>
                   <div className={styles.cardContentContainer}>
                     <div className={styles.cardImageContainer}>
-                      <img className={styles.cardImage} src={apartmentImage} alt={`${villa.name} image`} />
+                      <img className={styles.cardImage} src={villaImage} alt={`${villa.name} image`} />
                     </div>
                     <div className={styles.cardTextContainer}>
                       <p className={styles.cardTitle}>
