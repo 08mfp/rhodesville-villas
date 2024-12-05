@@ -151,7 +151,7 @@ return (
         </svg>
         <p className={styles.ratingText}>4.91</p>
         <span className={styles.separatorDot}></span>
-        <a href="#" className={styles.ratingLink}>19 reviews</a>
+        <a href="#" className={styles.ratingLink}>44 reviews</a>
         </div>
     </div>
     )}
